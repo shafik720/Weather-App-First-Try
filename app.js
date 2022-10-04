@@ -5,6 +5,7 @@ btn = wrapper.querySelector('.app-footer button'),
 infoText = document.querySelector('.body-header-text'),
 locationBtn = document.querySelector('.app-footer button'),
 backIcon = document.querySelector('.app-header span i'),
+weatherIcon = document.querySelector('.top-details img')
 bodyHeader = document.querySelector('.body-header');
 
 let api;
@@ -36,11 +37,8 @@ inputField.addEventListener('keyup',e=>{
     }
 })
 
-function requestApi(city){
-    // const key = '3f2f9bc259ce45af21bda8132115c015';
-           
-    let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3f2f9bc259ce45af21bda8132115c015`;
-    
+function requestApi(city){           
+    let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3f2f9bc259ce45af21bda8132115c015`;    
     fetchApi(api);
 }
 
@@ -63,10 +61,29 @@ function showWeatherData(data){
         bodyHeader.classList.remove('pending', 'error');
         wrapper.classList.add('active');
 
-        let {country, id } = data.sys
+        let {country} = data.sys
         let {name} = data;
-        let {main} = data.weather[0];
+        let {main, id} = data.weather[0];
         let {temp, humidity, feels_like } = data.main;
+
+        if(id==200){
+            weatherIcon.src = 'Weather Icons/rain.svg'
+        }else if(id>=200 && id<=232){
+            weatherIcon.src = 'Weather Icons/storm.svg'
+        }else if(id>=300 && id<=321){
+            weatherIcon.src = 'Weather Icons/haze.svg'
+        }else if(id>=600 && id<=622){
+            weatherIcon.src = 'Weather Icons/snow.svg'
+        }else if(id>=701 && id<=781){
+            weatherIcon.src = 'Weather Icons/haze.svg'
+        }else if(id>=500 && id<=531){
+            weatherIcon.src = 'Weather Icons/rain.svg'
+        }else if(id>=801 && id<=804){
+            weatherIcon.src = 'Weather Icons/cloud.svg'
+        }
+        else{
+            weatherIcon.src = 'Weather Icons/clear.svg'
+        }
 
         document.querySelector('.temp-number').innerText = Math.floor(temp);
         document.querySelector('.weather').innerText = main;
