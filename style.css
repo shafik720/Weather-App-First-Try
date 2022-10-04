@@ -104,3 +104,53 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+.top-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.weather-part .temp{
+    font-size: 70px;
+    font-weight: 600;
+}
+.weather{
+    font-weight: 500;
+}
+.location{
+    margin: 15px 0;
+}
+.location i{
+    margin-right: 5px;
+}
+
+
+.bottom-details{
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    border-top: 2px solid #ccc;
+}
+.column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+.column i{
+    font-size: 42px;
+    margin-right: 13px;
+    color: #007ACC;
+}
+.column .details span{
+    font-weight: 700;
+}
+.feels{
+    border-right: 2px solid #ccc;
+    padding-right: 35px;
+}
+.humidity{
+    padding-left: 35px;
+}
