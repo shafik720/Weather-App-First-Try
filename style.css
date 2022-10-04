@@ -39,6 +39,7 @@ body{
 
 
 .body-header{
+    display: none;
     margin: 15px 0;
     text-align: center;
     font-weight: 600;
@@ -47,10 +48,12 @@ body{
     border-radius: 5px;
 }
 .body-header.error{
+    display: block;
     color : #d31900;
     background: rgba(255, 0, 0, 0.336);
 }
 .body-header.pending{
+    display: block;
     color : #028f76;
     background:rgba(0, 128, 0, 0.336);
 }
@@ -67,6 +70,9 @@ body{
     border-radius: 5px;
     font-size: 18px;
     text-align: center;
+}
+.body-input input:is(:focus, :valid){
+    border: 2px solid #007ACC;
 }
 .separator{
     width: 100%;
