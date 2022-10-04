@@ -6,6 +6,11 @@ btn = wrapper.querySelector('.app-footer button')
 
 inputField.addEventListener('keyup',e=>{
     if(e.key == 'Enter' && inputField.value != ''){
-        console.log('ok');
+        requestApi(inputField.value);
+        inputField.value = '';
     }
 })
+
+function requestApi(city){
+    console.log(city);
+}
