@@ -22,7 +22,7 @@ body{
     /* box-shadow: 0 10px 10px rgba(255, 255, 255, 0.25); */
 }
 
-.input-part{
+.wrapper.active .input-part{
     display: none;
 }
 
@@ -35,7 +35,12 @@ body{
 .app-header span{
     font-size: 20px;
 }
+.wrapper.active span i{
+    font-size: 20px;
+    margin-left: 10px;
+}
 .app-header span i{
+    font-size: 0px;
     margin-right: 10px;
     cursor: pointer;
 }
@@ -106,6 +111,14 @@ body{
 }
 
 
+
+
+.wrapper.active .weather-part{
+    display: block;
+}
+.weather-part{
+    display: none;
+}
 .top-details{
     display: flex;
     justify-content: center;
@@ -128,7 +141,6 @@ body{
 .location i{
     margin-right: 5px;
 }
-
 
 .bottom-details{
     display: flex;
