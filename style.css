@@ -35,3 +35,24 @@ body{
     margin-right: 10px;
     cursor: pointer;
 }
+
+
+.body-header{
+    margin: 15px 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+.body-input{
+    margin: 10px 0;
+}
+.body-input input{
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: 2px solid #ccc;
+    height: 50px;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
