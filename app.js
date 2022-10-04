@@ -56,7 +56,8 @@ function fetchApi(api){
 function showWeatherData(data){
     if(data.cod=='404'){
         bodyHeader.classList.replace('pending', 'error');
-        infoText.innerText = `${inputField.value} not found`;
+        infoText.innerText = `${inputField.value} not a valid city`;
+        console.log(inputField.value)
         
     }else{
         bodyHeader.classList.remove('pending', 'error');
@@ -67,11 +68,11 @@ function showWeatherData(data){
         let {main} = data.weather[0];
         let {temp, humidity, feels_like } = data.main;
 
-        document.querySelector('.temp-number').innerText = temp;
+        document.querySelector('.temp-number').innerText = Math.floor(temp);
         document.querySelector('.weather').innerText = main;
         document.querySelector('.city').innerText = name;
         document.querySelector('.country').innerText = country;
-        document.querySelector('.feelsLike').innerText = feels_like;
+        document.querySelector('.feelsLike').innerText = Math.floor(feels_like);
         document.querySelector('.humidityText').innerText = humidity;
         
         backIcon.addEventListener('click',()=>{
