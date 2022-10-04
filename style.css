@@ -28,7 +28,7 @@ body{
 
 .app-header{
     border-bottom: 2px solid #ccc;
-    color: #18D1DA ;
+    color: #007ACC ;
     padding: 10px 0;
     margin-bottom: 20px;
 }
@@ -111,6 +111,9 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.weather-part img{
+    width: 125px;
 }
 .weather-part .temp{
     font-size: 70px;
