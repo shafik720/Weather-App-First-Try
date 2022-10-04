@@ -37,8 +37,7 @@ inputField.addEventListener('keyup',e=>{
 
 function requestApi(city){
     // const key = '3f2f9bc259ce45af21bda8132115c015';
-
-       
+           
     let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3f2f9bc259ce45af21bda8132115c015`;
     
     fetchApi(api);
@@ -50,5 +49,16 @@ function fetchApi(api){
 
     fetch(api)
     .then(response=>response.json())
-    .then(data=>console.log(data));
+    .then(data=>showWeatherData(data));
+}
+
+function showWeatherData(data){
+    if(data.cod=='404'){
+        bodyHeader.classList.replace('pending', 'error');
+        infoText.innerText = `${inputField.value} not found`;
+        console.log(data)
+    }else{
+        bodyHeader.classList.remove('pending', 'error');
+        wrapper.classList.add('active');
+    }
 }
