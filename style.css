@@ -8,7 +8,7 @@
 }
 body{
     font-family: 'Poppins', sans-serif;
-    background: #007ACC ;
+    background: #18D1DA ;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,12 +19,13 @@ body{
     padding: 20px 15px;
     border-radius: 5px;
     width: 400px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.5);
 }
 
 
 .app-header{
     border-bottom: 2px solid #ccc;
-    color: #007ACC ;
+    color: #18D1DA ;
     padding: 10px 0;
     margin-bottom: 20px;
 }
@@ -55,6 +56,7 @@ body{
     padding: 0 10px;
     border-radius: 5px;
     font-size: 18px;
+    text-align: center;
 }
 .separator{
     width: 100%;
@@ -71,4 +73,15 @@ body{
     padding: 0 10px;
     font-size: 20px;
     color: #ccc;
+}
+.app-footer button{
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: #18D1DA;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }
