@@ -43,6 +43,16 @@ body{
     text-align: center;
     font-weight: 600;
     font-size: 18px;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+.body-header.error{
+    color : #d31900;
+    background: rgba(255, 0, 0, 0.336);
+}
+.body-header.pending{
+    color : #028f76;
+    background:rgba(0, 128, 0, 0.336);
 }
 .body-input{
     margin: 10px 0;
