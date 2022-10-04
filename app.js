@@ -55,7 +55,6 @@ function showWeatherData(data){
     if(data.cod=='404'){
         bodyHeader.classList.replace('pending', 'error');
         infoText.innerText = `${inputField.value} not a valid city`;
-        console.log(inputField.value)
         
     }else{
         bodyHeader.classList.remove('pending', 'error');
@@ -96,6 +95,5 @@ function showWeatherData(data){
             wrapper.classList.remove('active');
         })
         console.log(data);
-        // console.log(country, city, temp)
     }
 }
