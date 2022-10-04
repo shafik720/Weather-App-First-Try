@@ -4,6 +4,7 @@ inputField = wrapper.querySelector('.body-input input'),
 btn = wrapper.querySelector('.app-footer button'),
 infoText = document.querySelector('.body-header-text'),
 locationBtn = document.querySelector('.app-footer button'),
+backIcon = document.querySelector('.app-header span i'),
 bodyHeader = document.querySelector('.body-header');
 
 let api;
@@ -19,7 +20,7 @@ locationBtn.addEventListener('click',()=>{
 function onSuccess(position){
     const{latitude, longitude} = position.coords;
 
-    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=3f2f9bc259ce45af21bda8132115c015`
+    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=3f2f9bc259ce45af21bda8132115c015`
     fetchApi(api);
 }
 
@@ -38,7 +39,7 @@ inputField.addEventListener('keyup',e=>{
 function requestApi(city){
     // const key = '3f2f9bc259ce45af21bda8132115c015';
            
-    let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3f2f9bc259ce45af21bda8132115c015`;
+    let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3f2f9bc259ce45af21bda8132115c015`;
     
     fetchApi(api);
 }
@@ -56,9 +57,27 @@ function showWeatherData(data){
     if(data.cod=='404'){
         bodyHeader.classList.replace('pending', 'error');
         infoText.innerText = `${inputField.value} not found`;
-        console.log(data)
+        
     }else{
         bodyHeader.classList.remove('pending', 'error');
         wrapper.classList.add('active');
+
+        let {country, id } = data.sys
+        let {name} = data;
+        let {main} = data.weather[0];
+        let {temp, humidity, feels_like } = data.main;
+
+        document.querySelector('.temp-number').innerText = temp;
+        document.querySelector('.weather').innerText = main;
+        document.querySelector('.city').innerText = name;
+        document.querySelector('.country').innerText = country;
+        document.querySelector('.feelsLike').innerText = feels_like;
+        document.querySelector('.humidityText').innerText = humidity;
+        
+        backIcon.addEventListener('click',()=>{
+            wrapper.classList.remove('active');
+        })
+        console.log(data);
+        // console.log(country, city, temp)
     }
 }

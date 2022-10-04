@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/fontawesome/font-awesome.css">
 </head>
+
 <body>
-    <div class="wrapper " >
+    <div class="wrapper ">
         <div class="app-header">
             <span><i class="fa-solid fa-left-long"></i> Weather App</span>
         </div>
@@ -24,35 +26,36 @@
                 <div class="separator"></div>
             </div>
             <div class="app-footer">
-                <button  type="button">Use Your Current Location</button>
+                <button type="button">Use Your Current Location</button>
             </div>
         </section>
+
+
         <section class="weather-part">
             <div class="top-details">
                 <img src="Weather Icons/rain.svg" alt="">
-            <div class="temp">
-                <span class="numb">13</span><span class="degree">° C</span>
-            </div>
-            <div class="weather">Broken Clouds</div>
-            <div class="location">
-                <span><i class="fa-solid fa-location-dot"></i></span>
-                <span>Dhaka, Bangladesh</span>
-            </div>
+                <div class="temp">
+                    <span class="numb temp-number">13</span><span class="degree">° C</span>
+                </div>
+                <div class="weather">Broken Clouds</div>
+                <div class="location">
+                    <span><i class="fa-solid fa-location-dot"></i></span>
+                    <span class="city">Dhaka</span>, <span class="country">Bangladesh</span>
+                </div>
             </div>
             <div class="bottom-details">
                 <div class="column feels">
                     <i class="fa-solid fa-temperature-three-quarters"></i>
                     <div class="details">
-                        <div class="">
-                            <span class="">13</span> <span class="">°</span> C
-                        </div>
+                        <span class="feelsLike">--</span>
+                        ° C
                         <p>Feels Like</p>
                     </div>
                 </div>
                 <div class="column humidity">
                     <i class="fa-solid fa-droplet"></i>
                     <div class="details">
-                        <span class="">84%</span>
+                        <span class="humidityText">--</span>%
                         <p>Humidity</p>
                     </div>
                 </div>
@@ -61,4 +64,5 @@
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
