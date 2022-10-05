@@ -119,13 +119,14 @@ function showWeatherData(data){
         weathers.push(weatherObj);
         localStorage.setItem('weather', JSON.stringify(weathers));
         
-        
         historyPart.classList.add('active');
         showWeatherFromStorage();
         
     }
 }
-
+if(weathers.length !=0){
+    historyPart.classList.add('active');
+}
 
 function showWeatherFromStorage(){
     document.querySelectorAll('.weather-card').forEach(element=>element.remove());
