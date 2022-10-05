@@ -68,6 +68,7 @@ function showWeatherData(data){
         let {name} = data;
         let {main, id} = data.weather[0];
         let {temp, humidity, feels_like } = data.main;
+        let imageSrc
 
         if(id==200){
             weatherIcon.src = 'Weather Icons/rain.svg'
