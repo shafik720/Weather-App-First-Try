@@ -5,7 +5,10 @@ btn = wrapper.querySelector('.app-footer button'),
 infoText = document.querySelector('.body-header-text'),
 locationBtn = document.querySelector('.app-footer button'),
 backIcon = document.querySelector('.app-header span i'),
-weatherIcon = document.querySelector('.top-details img')
+weatherIcon = document.querySelector('.top-details img'),
+historyPart = document.querySelector('.history-part'),
+history = document.querySelector('.history'),
+weatherCard = historyPart.querySelector('.weather-card'),
 bodyHeader = document.querySelector('.body-header');
 
 let api;
@@ -95,6 +98,22 @@ function showWeatherData(data){
         backIcon.addEventListener('click',()=>{
             wrapper.classList.remove('active');
         })
+
+        // Working on History part
+        let div = `
+            <div class="weather-card">
+            <div class="card-left">
+                <h4>${name}</h4>
+                <span>${Math.floor(temp)}</span>° C
+            </div>
+            <div class="card-right">
+                <img src="Weather Icons/rain.svg" width="50px" alt="">
+                <p>${main}</p>
+            </div>
+            </div>
+        `
+        history.insertAdjacentHTML('afterend', div);
+
         console.log(data);
     }
 }
