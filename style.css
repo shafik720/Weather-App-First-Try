@@ -16,6 +16,10 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
  /* ----------------------- Working on modal ----------------------- */
