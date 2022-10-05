@@ -108,7 +108,7 @@ function showWeatherData(data){
             wrapper.classList.remove('active');
         })
 
-        // Working on History part
+        // --------------------------  Working on History part  ------------------------
         let div = `
             <div class="weather-card">
             <div class="card-left">
