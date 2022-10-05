@@ -29,6 +29,7 @@ function onError(msg){
     bodyHeader.classList.add('error');
     infoText.innerText = msg.message;
 }
+ 
 
 inputField.addEventListener('keyup',e=>{
     if(e.key == 'Enter' && inputField.value != ''){
