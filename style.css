@@ -312,9 +312,14 @@ body{
 
 
 @media only screen and (max-width:680px){
-    .wrapper{        
-        width:95%;
+    .wrapper{     
+        background: white;
+        padding: 15px 10px;  
+        width:90%;
         margin-top: 70px;
+    }
+    .input-part{
+        padding: 0px 20px 20px 20px;
     }
     .history-part{
         margin-top: 80px;
@@ -327,6 +332,7 @@ body{
         bottom: 0;
     }
     .modal{
-        width: 95%;
+        width: 90%;
+        padding: 15px 7px;
     }
 }
