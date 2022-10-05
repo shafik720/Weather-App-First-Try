@@ -207,3 +207,22 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+
+
+@media only screen and (max-width:680px){
+    .wrapper{        
+        width:90%;
+        margin-top: 70px;
+    }
+    .history-part{
+        margin-top: 800px;
+        background: white;
+        padding: 20px 10px;
+        border-radius: 5px;
+        width: 90%;
+        position: relative;
+        right: auto;
+        bottom: 0;
+    }
+}
