@@ -71,22 +71,30 @@ function showWeatherData(data){
         let imageSrc
 
         if(id==200){
-            weatherIcon.src = 'Weather Icons/rain.svg'
+            weatherIcon.src = 'Weather Icons/rain.svg';
+            imageSrc = weatherIcon.src;            
         }else if(id>=200 && id<=232){
             weatherIcon.src = 'Weather Icons/storm.svg'
+            imageSrc = weatherIcon.src;
         }else if(id>=300 && id<=321){
             weatherIcon.src = 'Weather Icons/haze.svg'
+            imageSrc = weatherIcon.src;
         }else if(id>=600 && id<=622){
             weatherIcon.src = 'Weather Icons/snow.svg'
+            imageSrc = weatherIcon.src;
         }else if(id>=701 && id<=781){
             weatherIcon.src = 'Weather Icons/haze.svg'
+            imageSrc = weatherIcon.src;
         }else if(id>=500 && id<=531){
             weatherIcon.src = 'Weather Icons/rain.svg'
+            imageSrc = weatherIcon.src;
         }else if(id>=801 && id<=804){
             weatherIcon.src = 'Weather Icons/cloud.svg'
+            imageSrc = weatherIcon.src;
         }
         else{
             weatherIcon.src = 'Weather Icons/clear.svg'
+            imageSrc = weatherIcon.src;
         }
 
         document.querySelector('.temp-number').innerText = Math.floor(temp);
@@ -108,13 +116,13 @@ function showWeatherData(data){
                 <span>${Math.floor(temp)}</span>° C
             </div>
             <div class="card-right">
-                <img src="Weather Icons/rain.svg" width="50px" alt="">
+                <img src="${imageSrc}" width="50px" alt="">
                 <p>${main}</p>
             </div>
             </div>
         `
         history.insertAdjacentHTML('afterend', div);
 
-        console.log(data);
+        console.log(imageSrc);
     }
 }
