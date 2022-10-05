@@ -9,6 +9,7 @@ weatherIcon = document.querySelector('.top-details img'),
 historyPart = document.querySelector('.history-part'),
 history = document.querySelector('.history'),
 weatherCard = historyPart.querySelector('.weather-card'),
+cardRight = document.querySelector('.card-right'),
 bodyHeader = document.querySelector('.body-header');
 
 let api;
@@ -137,17 +138,22 @@ function showWeatherData(data){
 
 function showWeatherFromStorage(){
     document.querySelectorAll('.weather-card').forEach(element=>element.remove());
-    weathers.forEach(element=>{
+    weathers.forEach((element, id)=>{
         let div = `
-            <div class="weather-card">
+            <div class="weather-card" onmouseenter="test(this)" onmouseleave="untest(this)">
             <div class="card-left">
                 <h4>${element.city}</h4>
                 <span>${element.currentTemp}</span>° C
             </div>
             <div class="card-right">
-                <img src="${element.imgSource}" width="50px" alt="">
+            <div class="card-right-first">
+                <img src="${element.imgSource}" width="45px" alt="">
                 <p>${element.weatherCondition}</p>
             </div>
+            <div class="card-right-second">
+                <p onclick="deleteSingle(${id})">Delete</p>
+            </div>
+        </div>
             </div>
         `
         history.insertAdjacentHTML('afterend', div);
@@ -155,4 +161,17 @@ function showWeatherFromStorage(){
 }
 
 showWeatherFromStorage();
-console.log(weathers)
+
+function test(x){
+    x.classList.add('active');
+}
+function untest(x){
+    x.classList.remove('active');
+}
+
+function deleteSingle(x){
+    weathers.splice(x,1);
+    localStorage.setItem('weather', JSON.stringify(weathers));
+    showWeatherFromStorage();
+    console.log(weathers[x]);
+}

@@ -196,6 +196,7 @@ body{
     border: 2px solid #007ACC;
     border-radius: 5px ;
     padding: 5px 10px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -210,6 +211,30 @@ body{
     justify-content: center;
     align-items: center;
 }
+.weather-card.active  .card-right-first{
+    display: none;
+}
+.weather-card.active  .card-right-second{
+    display: block;
+}
+
+.card-right-first{
+    transition: all 0.2s ;
+}
+.card-right-second{
+    display: none;
+    transition: all 0.2s ;
+}
+.card-right-second p{
+    padding: 3px 13px;
+    color: white;
+    background: blue;
+    cursor: pointer;
+}
+
+
+
+
 
 
 
