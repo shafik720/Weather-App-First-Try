@@ -11,6 +11,7 @@ body{
     background: #002c2b ;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -168,4 +169,36 @@ body{
 }
 .humidity{
     padding-left: 35px;
+}
+
+
+ /* working on history part  */
+.history-part{
+    margin: 30px auto;
+    background: white;
+    padding: 20px 10px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.weather-card{
+    cursor: pointer;
+    transition: all 0.2s ;
+    margin: 20px 10px;
+    border: 2px solid #007ACC;
+    border-radius: 5px ;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.weather-card:hover{
+    box-shadow: 0 10px 12px  rgba(0,0,0,0.5);
+    /* transform: translateY(-5px); */
+}
+.card-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
