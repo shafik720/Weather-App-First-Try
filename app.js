@@ -11,7 +11,8 @@ history = document.querySelector('.history'),
 weatherCard = historyPart.querySelector('.weather-card'),
 cardRight = document.querySelector('.card-right'),
 modalSwitch = document.querySelector('.modal-switch'),
-modalCloseIcon = document.querySelector('.modal-icon i');
+modalCloseIcon = document.querySelector('.modal-icon i'),
+deleteBtn = document.querySelector('.history-part button'),
 bodyHeader = document.querySelector('.body-header');
 
 let api;
@@ -118,22 +119,10 @@ function showWeatherData(data){
         weathers.push(weatherObj);
         localStorage.setItem('weather', JSON.stringify(weathers));
         
+        
+        historyPart.classList.add('active');
         showWeatherFromStorage();
-
-        // --------------------------  Working on History part  ------------------------
-        // let div = `
-        //     <div class="weather-card">
-        //     <div class="card-left">
-        //         <h4>${name}</h4>
-        //         <span>${Math.floor(temp)}</span>° C
-        //     </div>
-        //     <div class="card-right">
-        //         <img src="${imageSrc}" width="50px" alt="">
-        //         <p>${main}</p>
-        //     </div>
-        //     </div>
-        // `
-        // history.insertAdjacentHTML('afterend', div);
+        
     }
 }
 
@@ -178,4 +167,10 @@ modalCloseIcon.addEventListener('click',()=>{
     modalSwitch.classList.remove('active');
 })
 
+deleteBtn.addEventListener('click',()=>{
+    localStorage.clear('weather');
+    weathers = JSON.parse(localStorage.getItem('weather') || '[]');
+    showWeatherFromStorage();
+    historyPart.classList.remove('active');
+})
 

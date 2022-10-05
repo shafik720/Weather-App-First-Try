@@ -1,6 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+html{
+    height: 100%;
+}
 *{
     margin: 0;
     padding: 0;
@@ -8,7 +11,7 @@
 }
 body{
     font-family: 'Poppins', sans-serif;
-    background: #002c2b ;
+    background: linear-gradient(45deg, #440F50, #B15B86) ;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,7 +54,7 @@ body{
      left: 50%;
      z-index: 6;
      transform: translate(-50%, -50%);
-     border: 3px solid blue;
+     border: 3px solid #007ACC;
      border-radius: 5px;
      display: flex;
      flex-direction: column;
@@ -73,7 +76,7 @@ body{
     padding: 20px 15px;
     border-radius: 5px;
     width: 400px;
-    /* box-shadow: 0 10px 10px rgba(255, 255, 255, 0.25); */
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
 }
 
 .wrapper.active .input-part{
@@ -240,6 +243,7 @@ body{
     bottom: 0;
     max-height: 270px;
     overflow-y: auto;
+    box-shadow:0 10px 12px rgba(0,0,0,0.5);
 }
 
 .weather-card{
@@ -284,7 +288,24 @@ body{
     background: blue;
     cursor: pointer;
 }
-
+.history-part button{
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    background: #007ACC;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.history-button{
+    display: none;
+}
+.history-part.active .history-button{
+    display: block;
+}
 
 
 
