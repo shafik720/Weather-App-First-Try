@@ -55,6 +55,8 @@ function fetchApi(api){
     .then(data=>showWeatherData(data));
 }
 
+let weathers = JSON.parse(localStorage.getItem('weather') || '[]');
+
 function showWeatherData(data){
     if(data.cod=='404'){
         bodyHeader.classList.replace('pending', 'error');
@@ -108,21 +110,49 @@ function showWeatherData(data){
             wrapper.classList.remove('active');
         })
 
+        // --------------------------  Working on Local Storage  ------------------------
+        let weatherObj = {city:`${name}`, currentTemp: `${Math.floor(temp)}`, imgSource:`${imageSrc}`, weatherCondition:`${main}`};
+        weathers.push(weatherObj);
+        localStorage.setItem('weather', JSON.stringify(weathers));
+        
+        showWeatherFromStorage();
+
         // --------------------------  Working on History part  ------------------------
+        // let div = `
+        //     <div class="weather-card">
+        //     <div class="card-left">
+        //         <h4>${name}</h4>
+        //         <span>${Math.floor(temp)}</span>° C
+        //     </div>
+        //     <div class="card-right">
+        //         <img src="${imageSrc}" width="50px" alt="">
+        //         <p>${main}</p>
+        //     </div>
+        //     </div>
+        // `
+        // history.insertAdjacentHTML('afterend', div);
+    }
+}
+
+
+function showWeatherFromStorage(){
+    document.querySelectorAll('.weather-card').forEach(element=>element.remove());
+    weathers.forEach(element=>{
         let div = `
             <div class="weather-card">
             <div class="card-left">
-                <h4>${name}</h4>
-                <span>${Math.floor(temp)}</span>° C
+                <h4>${element.city}</h4>
+                <span>${element.currentTemp}</span>° C
             </div>
             <div class="card-right">
-                <img src="${imageSrc}" width="50px" alt="">
-                <p>${main}</p>
+                <img src="${element.imgSource}" width="50px" alt="">
+                <p>${element.weatherCondition}</p>
             </div>
             </div>
         `
         history.insertAdjacentHTML('afterend', div);
-
-        console.log(imageSrc);
-    }
+    })
 }
+
+showWeatherFromStorage();
+console.log(weathers)
