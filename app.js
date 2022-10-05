@@ -10,6 +10,8 @@ historyPart = document.querySelector('.history-part'),
 history = document.querySelector('.history'),
 weatherCard = historyPart.querySelector('.weather-card'),
 cardRight = document.querySelector('.card-right'),
+modalSwitch = document.querySelector('.modal-switch'),
+modalCloseIcon = document.querySelector('.modal-icon i');
 bodyHeader = document.querySelector('.body-header');
 
 let api;
@@ -71,7 +73,7 @@ function showWeatherData(data){
         let {name} = data;
         let {main, id} = data.weather[0];
         let {temp, humidity, feels_like } = data.main;
-        let imageSrc
+        let imageSrc;
 
         if(id==200){
             weatherIcon.src = 'Weather Icons/rain.svg';
@@ -112,7 +114,7 @@ function showWeatherData(data){
         })
 
         // --------------------------  Working on Local Storage  ------------------------
-        let weatherObj = {city:`${name}`, currentTemp: `${Math.floor(temp)}`, imgSource:`${imageSrc}`, weatherCondition:`${main}`};
+        let weatherObj = {city:`${name}`, currentTemp: `${Math.floor(temp)}`, imgSource:`${imageSrc}`, weatherCondition:`${main}`, country: `${country}`, feels:`${Math.floor(feels_like)}`, humidity:`${humidity}`, id:`${id}`};
         weathers.push(weatherObj);
         localStorage.setItem('weather', JSON.stringify(weathers));
         
@@ -140,7 +142,7 @@ function showWeatherFromStorage(){
     document.querySelectorAll('.weather-card').forEach(element=>element.remove());
     weathers.forEach((element, id)=>{
         let div = `
-            <div class="weather-card" onmouseenter="test(this)" onmouseleave="untest(this)">
+            <div class="weather-card" onclick="showModal(${id})" >
             <div class="card-left">
                 <h4>${element.city}</h4>
                 <span>${element.currentTemp}</span>° C
@@ -150,9 +152,7 @@ function showWeatherFromStorage(){
                 <img src="${element.imgSource}" width="45px" alt="">
                 <p>${element.weatherCondition}</p>
             </div>
-            <div class="card-right-second">
-                <p onclick="deleteSingle(${id})">Delete</p>
-            </div>
+            
         </div>
             </div>
         `
@@ -162,16 +162,20 @@ function showWeatherFromStorage(){
 
 showWeatherFromStorage();
 
-function test(x){
-    x.classList.add('active');
+function showModal(any){
+    modalSwitch.classList.add('active');
+    let  weather = weathers[any];
+    document.querySelector('.modal-temp-number').innerText = weather.currentTemp;
+    document.querySelector('.modal-weather').innerText = weather.weatherCondition;
+    document.querySelector('.modal-city').innerText = weather.city;
+    document.querySelector('.modal-country').innerText = weather.country;
+    document.querySelector('.modal-feelsLike').innerText = weather.feels;
+    document.querySelector('.modal-humidityText').innerText = weather.humidity;
+    document.querySelector('.modal-top-details img').src = weather.imgSource;
+    console.log(weathers[any]);
 }
-function untest(x){
-    x.classList.remove('active');
-}
+modalCloseIcon.addEventListener('click',()=>{
+    modalSwitch.classList.remove('active');
+})
 
-function deleteSingle(x){
-    weathers.splice(x,1);
-    localStorage.setItem('weather', JSON.stringify(weathers));
-    showWeatherFromStorage();
-    console.log(weathers[x]);
-}
+

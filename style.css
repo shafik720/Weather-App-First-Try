@@ -14,6 +14,59 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+ /* ----------------------- Working on modal ----------------------- */
+ 
+ .modal-wrapper{
+     background: rgba(0,0,0,0.3);
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     z-index: 5;
+     display: none;
+ }
+ .modal-switch.active .modal-wrapper{
+     display: block;
+ }
+ .modal-icon{
+     display: flex;
+     justify-content: flex-end;
+     align-items: flex-start;
+ }
+ .modal-icon i{
+     font-size: 25px;
+     color: #ccc;
+     margin-top: -15px;
+     cursor: pointer;
+ }
+ .modal{
+     background: white;
+     padding: 20px 15px;
+     width: 400px;
+     height: 500px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     z-index: 6;
+     transform: translate(-50%, -50%);
+     border: 3px solid blue;
+     border-radius: 5px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+ }
+ .modal-bottom-details{
+     display: flex;
+     justify-content: space-evenly;
+ }
+ .modal img{
+     width: 120px;
+ }
+
+
+
 .wrapper{
     background: white;
     margin-top: 100px;
@@ -123,7 +176,7 @@ body{
 .weather-part{
     display: none;
 }
-.top-details{
+.top-details, .modal-top-details{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,45 +185,45 @@ body{
 .weather-part img{
     width: 125px;
 }
-.weather-part .temp{
+.weather-part .temp, .modal-temp{
     font-size: 70px;
     font-weight: 600;
 }
-.weather{
+.weather, .modal-weather{
     font-weight: 500;
 }
-.location{
+.location, .modal-location{
     margin: 15px 0;
 }
-.location i{
+.location i, .modal-location i{
     margin-right: 5px;
 }
 
-.bottom-details{
+.bottom-details, .modal-bottom-details{
     display: flex;
     justify-content: center;
     margin-top: 35px;
     border-top: 2px solid #ccc;
 }
-.column{
+.column, .modal-column{
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 15px;
 }
-.column i{
+.column i, .modal-column i{
     font-size: 42px;
     margin-right: 13px;
     color: #007ACC;
 }
-.column .details span{
+.column .details span, .modal-details span{
     font-weight: 700;
 }
-.feels{
+.feels, .modal-feels{
     border-right: 2px solid #ccc;
     padding-right: 35px;
 }
-.humidity{
+.humidity ,  .modal-humidity{
     padding-left: 35px;
 }
 
@@ -252,5 +305,8 @@ body{
         position: relative;
         right: auto;
         bottom: 0;
+    }
+    .modal{
+        width: 95%;
     }
 }
