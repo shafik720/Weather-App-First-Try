@@ -114,34 +114,34 @@ function showWeatherData(data){
             wrapper.classList.remove('active');
         })
 
+        //---------- Working on time
+        function filteredTimes(){
+            let today = new Date()
+            let hours = today.getHours();
+            let minutes = today.getMinutes();
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            let amPm = 'am';
+            if(hours>=12){
+                hours = hours-12;                
+                amPm = 'pm'
+            }
+            let times = `${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()} , ${hours}:${minutes} ${amPm}`
+            return times;
+        }
+        let  timess = filteredTimes();
+
         // --------------------------  Working on Local Storage  ------------------------
         // let 
-        let weatherObj = {city:`${name}`, currentTemp: `${Math.floor(temp)}`, imgSource:`${imageSrc}`, weatherCondition:`${main}`, country: `${country}`, feels:`${Math.floor(feels_like)}`, humidity:`${humidity}`, id:`${id}`};
+        let weatherObj = {city:`${name}`, currentTemp: `${Math.floor(temp)}`, imgSource:`${imageSrc}`, weatherCondition:`${main}`, country: `${country}`, feels:`${Math.floor(feels_like)}`, humidity:`${humidity}`, id:`${id}`, times: `${timess}`};
         weathers.push(weatherObj);
         localStorage.setItem('weather', JSON.stringify(weathers));
         
         historyPart.classList.add('active');
-        showWeatherFromStorage();
+        showWeatherFromStorage();       
+        
+    }
+}
 
-        
-        
-    }
-}
-function filteredTimes(){
-    let today = new Date()
-    let hours = today.getHours();
-    let minutes = today.getMinutes();
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    let amPm = 'am';
-    if(hours>=12){
-        hours = hours-12;                
-        amPm = 'pm'
-    }
-    let times = `${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()} at ${hours}:${minutes}${amPm}`
-    return times;
-}
-let  timess = filteredTimes();
-console.log(timess);
 
 if(weathers.length !=0){
     historyPart.classList.add('active');
@@ -151,7 +151,8 @@ function showWeatherFromStorage(){
     document.querySelectorAll('.weather-card').forEach(element=>element.remove());
     weathers.forEach((element, id)=>{
         let div = `
-            <div class="weather-card" onclick="showModal(${id})" >
+        <div class="weather-card" onclick="showModal(${id})" >
+        <div class="weather-cards">
             <div class="card-left">
                 <h4>${element.city}</h4>
                 <span>${element.currentTemp}</span>° C
@@ -160,10 +161,13 @@ function showWeatherFromStorage(){
             <div class="card-right-first">
                 <img src="${element.imgSource}" width="45px" alt="">
                 <p>${element.weatherCondition}</p>
+            </div>            
             </div>
-            
         </div>
-            </div>
+        <div class="time-history">
+            <p>${element.times}</p>
+        </div>
+        </div>
         `
         history.insertAdjacentHTML('afterend', div);
     })

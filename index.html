@@ -115,6 +115,23 @@
         
     </section>
     
+    <div class="weather-card" onclick="showModal(${id})" >
+        <div class="weather-cards">
+            <div class="card-left">
+                <h4>${element.city}</h4>
+                <span>${element.currentTemp}</span>° C
+            </div>
+            <div class="card-right">
+            <div class="card-right-first">
+                <img src="${element.imgSource}" width="45px" alt="">
+                <p>${element.weatherCondition}</p>
+            </div>            
+            </div>
+        </div>
+        <div class="time-history">
+            <p>Searched on 12 october, 2022 04:25am</p>
+        </div>
+        </div>
     <script src="app.js"></script>
 </body>
 

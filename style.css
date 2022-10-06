@@ -251,11 +251,16 @@ body{
     margin: 20px 10px;
     border: 2px solid #007ACC;
     border-radius: 5px ;
-    padding: 5px 10px;
-    height: 100px;
+    padding: 10px 10px;
+}
+.weather-cards{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.time-history{
+    text-align: center;
+    font-size: 14px;
 }
 .weather-card:hover{
     box-shadow: 0 7px 10px  rgba(0,0,0,0.5);
