@@ -252,7 +252,7 @@ body{
     position: fixed;
     right: 0;
     bottom: 0;
-    max-height: 350px;
+    max-height: 347px;
     overflow-y: auto;
     box-shadow:0 10px 12px rgba(0,0,0,0.5);
 }
