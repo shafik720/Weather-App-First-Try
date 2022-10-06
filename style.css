@@ -196,15 +196,27 @@ body{
 }
 .location, .modal-location{
     margin: 15px 0;
+    text-align: center;
+}
+.modal-location .modal-country, .modal-city{
+    font-weight: 600;
+    font-size: 18px;
 }
 .location i, .modal-location i{
     margin-right: 5px;
 }
+.modal-location p{
+    margin-top: 10px;
+}
+#historyDate{
+    color: teal;
+}
+
 
 .bottom-details, .modal-bottom-details{
     display: flex;
     justify-content: center;
-    margin-top: 35px;
+    /* margin-top: 15px; */
     border-top: 2px solid #ccc;
 }
 .column, .modal-column{

@@ -185,6 +185,7 @@ function showModal(any){
     document.querySelector('.modal-feelsLike').innerText = weather.feels;
     document.querySelector('.modal-humidityText').innerText = weather.humidity;
     document.querySelector('.modal-top-details img').src = weather.imgSource;
+    document.getElementById('historyDate').innerText = weather.times;
     console.log(weathers[any]);
 }
 modalCloseIcon.addEventListener('click',()=>{
